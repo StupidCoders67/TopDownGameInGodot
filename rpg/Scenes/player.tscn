@@ -243,7 +243,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0gysh")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack_down",
 "speed": 10.0
 }, {
@@ -260,9 +260,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ypfnu")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack_right",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -277,9 +277,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yh6i2")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack_up",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -425,4 +425,6 @@ script = ExtResource("1_cvnsp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=170159084]
 sprite_frames = SubResource("SpriteFrames_c81ii")
-animation = &"Death"
+animation = &"attack_down"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

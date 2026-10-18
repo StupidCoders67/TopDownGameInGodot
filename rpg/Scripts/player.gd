@@ -1,10 +1,16 @@
 extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sword_swing: AudioStreamPlayer2D = $SwordSwing
+@onready var hitbox: Area2D = $Hitbox
 
 var last_direction: Vector2 = Vector2.RIGHT
 var is_attacking: bool = false
+var hitbox_offset: Vector2
 
 const SPEED = 300.0
+
+func _ready() -> void:
+	hitbox_offset = hitbox.position
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack") and not is_attacking:
@@ -14,8 +20,10 @@ func _physics_process(delta: float) -> void:
 		return
 	process_movement()
 	move_and_slide()
-
-
+	update_hitbox()
+#--------------------------------------------------------------------------------
+#MOVING
+#--------------------------------------------------------------------------------
 func process_movement() -> void:
 	var direction := Input.get_vector("Left", "Right", "Up", "Down")
 	if direction != Vector2.ZERO:
@@ -25,8 +33,6 @@ func process_movement() -> void:
 		velocity = Vector2.ZERO
 	process_animation(last_direction)
 
-
-
 func process_animation(direction) -> void:
 	if is_attacking:
 		return
@@ -34,8 +40,6 @@ func process_animation(direction) -> void:
 		player_animation("walk", direction)
 	else:
 		player_animation("idle", direction)
-
-
 
 func player_animation(prefix: String, dir: Vector2) -> void:
 	if dir.x != 0:
@@ -45,13 +49,29 @@ func player_animation(prefix: String, dir: Vector2) -> void:
 		animated_sprite_2d.play(prefix + "_up")
 	elif dir.y > 0:
 		animated_sprite_2d.play(prefix + "_down")
-		
+#--------------------------------------------------------------------------------
+#Attacking
+#--------------------------------------------------------------------------------		
 func attack() -> void:
 	is_attacking = true
+	sword_swing.play()
 	player_animation("attack", last_direction)
-	print("attack")
-	 
-
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	is_attacking = false
+
+#--------------------------------------------------------------------------------
+#Hitbox_offset
+#--------------------------------------------------------------------------------
+func update_hitbox() -> void:
+	var x = hitbox_offset.x
+	var y = hitbox_offset.y
+	match last_direction:
+		Vector2.RIGHT:
+			hitbox.position = Vector2(x, y)
+		Vector2.LEFT:
+			hitbox.position = Vector2(-x, y)
+		Vector2.UP:
+			hitbox.position = Vector2(y, -x)
+		Vector2.DOWN:
+			hitbox.position = Vector2(-y, x)

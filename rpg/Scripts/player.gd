@@ -6,6 +6,7 @@ extends CharacterBody2D
 var last_direction: Vector2 = Vector2.RIGHT
 var is_attacking: bool = false
 var hitbox_offset: Vector2
+var strength: int = 20
 
 const SPEED = 300.0
 
@@ -13,6 +14,8 @@ func _ready() -> void:
 	hitbox_offset = hitbox.position
 
 func _physics_process(delta: float) -> void:
+	#Hitbox Monitering's disablement
+	hitbox.monitoring = false
 	if Input.is_action_just_pressed("attack") and not is_attacking:
 		attack()
 	if is_attacking:
@@ -54,6 +57,7 @@ func player_animation(prefix: String, dir: Vector2) -> void:
 #--------------------------------------------------------------------------------		
 func attack() -> void:
 	is_attacking = true
+	hitbox.monitoring = true
 	sword_swing.play()
 	player_animation("attack", last_direction)
 
@@ -75,3 +79,9 @@ func update_hitbox() -> void:
 			hitbox.position = Vector2(y, -x)
 		Vector2.DOWN:
 			hitbox.position = Vector2(-y, x)
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if is_attacking and body.name.begins_with("Slime"):
+		print("hit")
+		body.take_damage(strength, position)

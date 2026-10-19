@@ -13,7 +13,7 @@ config_version=5
 [application]
 
 config/name="RPG"
-run/main_scene="res://Scenes/main.tscn"
+run/main_scene="uid://c5tg47uxv5euq"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c5tg47uxv5euq"]
+
+[ext_resource type="Script" uid="uid://f2snywreukpm" path="res://Scripts/start_menu.gd" id="1_y5olr"]
+
+[node name="Node2D" type="Node2D" unique_id=1395246390]
+script = ExtResource("1_y5olr")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1633671443]
+offset_right = 957.0
+offset_bottom = 508.0
+
+[node name="Button" type="Button" parent="TextureRect" unique_id=1473583115]
+layout_mode = 0
+offset_left = 545.0
+offset_top = 231.0
+offset_right = 653.0
+offset_bottom = 254.0
+text = "Start"
+
+[connection signal="pressed" from="TextureRect/Button" to="." method="_on_button_pressed"]

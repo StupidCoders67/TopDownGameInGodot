@@ -6,8 +6,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print('player entered')
+	if body.name == 'Player':
+		player_entered = true
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	print('player exited')
+	if body.name == 'Player':
+		player_entered = false

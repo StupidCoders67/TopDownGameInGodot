@@ -2,6 +2,9 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sword_swing: AudioStreamPlayer2D = $SwordSwing
 @onready var hitbox: Area2D = $Hitbox
+@onready var interact_with_npc: Control = $"Interact with NPC"
+@onready var npc: CharacterBody2D = $"../NPC"
+@onready var dialog: Control = $Dialog
 
 
 var last_direction: Vector2 = Vector2.RIGHT
@@ -25,6 +28,7 @@ func _physics_process(delta: float) -> void:
 	process_movement()
 	move_and_slide()
 	update_hitbox()
+	_interact_with_NPC()
 #--------------------------------------------------------------------------------
 #MOVING
 #--------------------------------------------------------------------------------
@@ -85,3 +89,15 @@ func update_hitbox() -> void:
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if is_attacking and body.name.begins_with("Slime"):
 		body.take_damage(strength, position)
+#--------------------------------------------------------------------------------
+#NPC Interaction
+#--------------------------------------------------------------------------------
+func _interact_with_NPC() -> void:
+	if npc.player_entered:
+		interact_with_npc.visible = true
+	else:
+		interact_with_npc.visible = false
+		
+func _dialog() -> void:
+	dialob.visibility = true
+	

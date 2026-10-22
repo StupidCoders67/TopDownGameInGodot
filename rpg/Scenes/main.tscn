@@ -661,12 +661,6 @@ scale = Vector2(4, 4)
 tile_map_data = PackedByteArray("AAAlAAQACQAAAAAAAAAkAAMACgABAAAAAAAmAAMACgADAAEAAAAmAAUACgADAAMAAAAkAAUACgABAAMAAAAlAAUACgACAAAAAAAlAAMACgACAAAAAAAmAAQACgAAAAEAAAA=")
 tile_set = SubResource("TileSet_1vfk3")
 
-[node name="Player" parent="." unique_id=1569827867 instance=ExtResource("1_jjgbg")]
-position = Vector2(-248, 170)
-scale = Vector2(4, 4)
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1134723184]
-
 [node name="Node" type="Node" parent="." unique_id=688705712]
 
 [node name="Slime" parent="Node" unique_id=52502482 instance=ExtResource("2_bo1nx")]
@@ -684,4 +678,11 @@ position = Vector2(87, -343)
 [node name="NPC" parent="." unique_id=153304265 instance=ExtResource("19_fevyy")]
 position = Vector2(-345, -57)
 
+[node name="Player" parent="." unique_id=1569827867 instance=ExtResource("1_jjgbg")]
+position = Vector2(-248, 170)
+scale = Vector2(4, 4)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1134723184]
+
 [editable path="Level 1"]
+[editable path="NPC"]

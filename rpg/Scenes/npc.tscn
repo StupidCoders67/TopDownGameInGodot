@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://da1xkk6c0octf"]
 
 [ext_resource type="Texture2D" uid="uid://b8sitelg0a23k" path="res://Assets/Character/Knight/SpriteSheet.png" id="1_acqhf"]
-[ext_resource type="Script" uid="uid://jl5lsk1ux1kv" path="res://Scenes/npc.gd" id="1_xxsvc"]
+[ext_resource type="Script" uid="uid://jl5lsk1ux1kv" path="res://Scripts/npc.gd" id="1_xxsvc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xxsvc"]
 atlas = ExtResource("1_acqhf")
@@ -22,6 +22,7 @@ animations = [{
 radius = 41.0
 
 [node name="NPC" type="CharacterBody2D" unique_id=153304265]
+scale = Vector2(4, 4)
 script = ExtResource("1_xxsvc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=420075097]

@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var sword_swing: AudioStreamPlayer2D = $SwordSwing
 @onready var hitbox: Area2D = $Hitbox
 
+
 var last_direction: Vector2 = Vector2.RIGHT
 var is_attacking: bool = false
 var hitbox_offset: Vector2
@@ -83,5 +84,4 @@ func update_hitbox() -> void:
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if is_attacking and body.name.begins_with("Slime"):
-		print("hit")
 		body.take_damage(strength, position)

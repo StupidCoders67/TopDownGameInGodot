@@ -7,7 +7,6 @@ extends Node2D
 
 func _process(delta: float) -> void:
 	var healthbar=slime.health
-	print(healthbar)
 	var healthbar_percentage= (18*healthbar)/100
 	health.region_rect.size.x = healthbar_percentage
 	

@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cbmrw0rg7e4t8" path="res://Assets/Tiles/Beach_Tile.png" id="14_gt3je"]
 [ext_resource type="Texture2D" uid="uid://gvhiltxbeevp" path="res://Assets/Tiles/Cliff_Tile.png" id="15_3pmx8"]
 [ext_resource type="Texture2D" uid="uid://crlrmcijdxbhw" path="res://Assets/Tiles/FarmLand_Tile.png" id="16_u50mg"]
+[ext_resource type="PackedScene" uid="uid://da1xkk6c0octf" path="res://Scenes/npc.tscn" id="19_fevyy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h1bgf"]
 texture = ExtResource("2_hptm8")
@@ -679,5 +680,8 @@ position = Vector2(785, 538)
 
 [node name="Slime4" parent="Node" unique_id=293470150 instance=ExtResource("2_bo1nx")]
 position = Vector2(87, -343)
+
+[node name="NPC" parent="." unique_id=153304265 instance=ExtResource("19_fevyy")]
+position = Vector2(-345, -57)
 
 [editable path="Level 1"]

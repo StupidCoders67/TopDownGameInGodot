@@ -20,7 +20,6 @@ func _attack(delta: float) -> void:
 
 func take_damage(damage: int, attacker_position: Vector2) -> void:
 	health -= damage
-	print(health)
 	if health <= 0:
 		_die()
 	else:
@@ -47,7 +46,6 @@ func _die() -> void:
 	
 func _on_sight_body_entered(body: Node2D) -> void:
 	if body.name =='Player':
-		print("player detected")
 		target = body 
 
 

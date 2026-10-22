@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c5epm3qcy3cig" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://o0rnb7kfboto" path="res://Assets/Player/Player.png" id="1_v0iea"]
 [ext_resource type="AudioStream" uid="uid://cyld4ft13s7pr" path="res://Assets/Audio/530444__mellau__whoosh-short-4.wav" id="3_6t5aa"]
+[ext_resource type="PackedScene" uid="uid://rxiy08l7x57b" path="res://Scenes/interact_with_npc.tscn" id="4_vgqql"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fs7ks"]
 atlas = ExtResource("1_v0iea")
@@ -450,6 +451,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=571359063]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_6t5aa")
+
+[node name="Interact with NPC" parent="." unique_id=815058774 instance=ExtResource("4_vgqql")]
+visible = false
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

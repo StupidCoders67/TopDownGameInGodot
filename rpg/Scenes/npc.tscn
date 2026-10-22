@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://da1xkk6c0octf"]
+
+[ext_resource type="Texture2D" uid="uid://b8sitelg0a23k" path="res://Assets/Character/Knight/SpriteSheet.png" id="1_acqhf"]
+[ext_resource type="Script" uid="uid://jl5lsk1ux1kv" path="res://Scenes/npc.gd" id="1_xxsvc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxsvc"]
+atlas = ExtResource("1_acqhf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q2y06"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxsvc")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_acqhf"]
+radius = 41.0
+
+[node name="NPC" type="CharacterBody2D" unique_id=153304265]
+script = ExtResource("1_xxsvc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=420075097]
+sprite_frames = SubResource("SpriteFrames_q2y06")
+frame_progress = 0.83326066
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2067406646]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1359566247]
+shape = SubResource("CircleShape2D_acqhf")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

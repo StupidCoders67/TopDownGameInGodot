@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://o0rnb7kfboto" path="res://Assets/Player/Player.png" id="1_v0iea"]
 [ext_resource type="AudioStream" uid="uid://cyld4ft13s7pr" path="res://Assets/Audio/530444__mellau__whoosh-short-4.wav" id="3_6t5aa"]
 [ext_resource type="PackedScene" uid="uid://rxiy08l7x57b" path="res://Scenes/interact_with_npc.tscn" id="4_vgqql"]
-[ext_resource type="PackedScene" uid="uid://cryt5kmb7fv2j" path="res://Scenes/dialog.tscn" id="5_fkybt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fs7ks"]
 atlas = ExtResource("1_v0iea")
@@ -461,22 +460,5 @@ offset_top = 17.0
 offset_right = -33.0
 offset_bottom = 17.0
 
-[node name="Dialog" parent="." unique_id=2037346236 instance=ExtResource("5_fkybt")]
-visible = false
-offset_left = -84.0
-offset_top = 18.0
-offset_right = -84.0
-offset_bottom = 18.0
-scale = Vector2(0.5, 0.5)
-
-[node name="RichTextLabel" parent="Dialog" index="0" unique_id=1118487812]
-theme_override_colors/default_color = Color(0.91004455, 0.71662813, 0.65367466, 1)
-theme_override_font_sizes/normal_font_size = 40
-text = "BLAHHH"
-scroll_following = true
-scroll_following_visible_characters = true
-
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
-
-[editable path="Dialog"]

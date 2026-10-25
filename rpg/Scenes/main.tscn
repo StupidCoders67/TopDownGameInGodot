@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://gvhiltxbeevp" path="res://Assets/Tiles/Cliff_Tile.png" id="15_3pmx8"]
 [ext_resource type="Texture2D" uid="uid://crlrmcijdxbhw" path="res://Assets/Tiles/FarmLand_Tile.png" id="16_u50mg"]
 [ext_resource type="PackedScene" uid="uid://da1xkk6c0octf" path="res://Scenes/npc.tscn" id="19_fevyy"]
+[ext_resource type="PackedScene" uid="uid://cryt5kmb7fv2j" path="res://Scenes/dialog.tscn" id="20_hibaj"]
+[ext_resource type="Script" uid="uid://bm63hewmx8puc" path="res://Scenes/dialog.gd" id="21_pdsj5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h1bgf"]
 texture = ExtResource("2_hptm8")
@@ -684,5 +686,18 @@ scale = Vector2(4, 4)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1134723184]
 
+[node name="Dialog" parent="Player" unique_id=2037346236 instance=ExtResource("20_hibaj")]
+visible = false
+offset_left = -87.25
+offset_top = 16.5
+offset_right = -87.25
+offset_bottom = 16.5
+scale = Vector2(0.5, 0.5)
+script = ExtResource("21_pdsj5")
+
+[connection signal="pressed" from="Player/Dialog/Control/Button" to="Player/Dialog" method="_on_button_pressed"]
+
 [editable path="Level 1"]
 [editable path="NPC"]
+[editable path="Player/Dialog"]
+[editable path="Player/Dialog/Control"]

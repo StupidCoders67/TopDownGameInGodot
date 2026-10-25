@@ -167,7 +167,7 @@ animations = [{
 size = Vector2(18.5, 16.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c81ii"]
-radius = 150.0
+radius = 100.0
 
 [node name="Slime" type="CharacterBody2D" unique_id=52502482]
 scale = Vector2(3, 3)

@@ -1,25 +1,30 @@
 [gd_scene format=3 uid="uid://di1id8dgwpm2s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20rfi"]
-bg_color = Color(0.077436306, 0.11176821, 0.14331588, 1)
+bg_color = Color(1, 1, 1, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
+border_color = Color(0.9707598, 0.54218274, 0.26838514, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
-corner_detail = 20
+corner_detail = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5j06u"]
-bg_color = Color(0.078431375, 0.11372549, 0.14509805, 1)
+bg_color = Color(0.972549, 0.5411765, 0.26666668, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.8156863, 0.34901962, 0, 1)
-corner_detail = 20
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 3
 
 [node name="Control" type="Control" unique_id=1189031698]
 layout_mode = 3
@@ -33,8 +38,8 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 9.0
-theme_override_colors/font_color = Color(0.61787385, 0.86778426, 0.8678935, 1)
-theme_override_colors/font_hover_color = Color(0.8156863, 0.34901962, 0, 1)
+theme_override_colors/font_color = Color(1, 0.5902411, 0.40547946, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
 theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 12

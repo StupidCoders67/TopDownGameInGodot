@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var hitbox: Area2D = $Hitbox
 @onready var interact_with_npc: Control = $"Interact with NPC"
 @onready var npc: CharacterBody2D = $"../NPC"
+@onready var dialog: Control = $Dialog
 
 
 var last_direction: Vector2 = Vector2.RIGHT
@@ -28,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	update_hitbox()
 	_interact_with_NPC()
 	if interact_with_npc.visible and Input.is_action_just_pressed("Interact"):
-		npc.dialog1()
+		dialog.dialog1()
 		print('blah')
 #--------------------------------------------------------------------------------
 #MOVING
@@ -99,6 +100,7 @@ func _interact_with_NPC() -> void:
 		interact_with_npc.visible = true
 	else:
 		interact_with_npc.visible = false
+		
 		
 	
 	

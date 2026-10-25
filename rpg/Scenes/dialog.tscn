@@ -1,6 +1,34 @@
 [gd_scene format=3 uid="uid://cryt5kmb7fv2j"]
 
 [ext_resource type="Texture2D" uid="uid://bw2v5w3iixkke" path="res://Assets/UI/Dialog/DialogBox.png" id="1_irs7l"]
+[ext_resource type="FontFile" uid="uid://bt1jweys4ovo5" path="res://Assets/UI/Font/NormalFont.ttf" id="2_87kay"]
+[ext_resource type="PackedScene" uid="uid://di1id8dgwpm2s" path="res://Scenes/Button.tscn" id="2_edf0l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20rfi"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.9707598, 0.54218274, 0.26838514, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5j06u"]
+bg_color = Color(0.972549, 0.5411765, 0.26666668, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 3
 
 [node name="Dialog" type="Control" unique_id=2037346236]
 layout_mode = 3
@@ -14,16 +42,6 @@ offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1118487812]
-layout_mode = 0
-offset_left = 33.0
-offset_top = 4.0
-offset_right = 327.0
-offset_bottom = 44.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 16
-text = "HELLO WORLD"
-
 [node name="TextureRect" type="TextureRect" parent="." unique_id=67447838]
 layout_mode = 0
 offset_left = 27.0
@@ -32,9 +50,63 @@ offset_right = 327.0
 offset_bottom = 48.0
 texture = ExtResource("1_irs7l")
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1988647479]
+[node name="Text" type="RichTextLabel" parent="." unique_id=1118487812]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 4.0
+offset_right = 615.0
+offset_bottom = 84.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/default_color = Color(0.8666667, 0.5803922, 0.5529412, 1)
+theme_override_fonts/normal_font = ExtResource("2_87kay")
+theme_override_font_sizes/normal_font_size = 24
+
+[node name="Name" type="RichTextLabel" parent="." unique_id=1988647479]
 layout_mode = 0
 offset_left = 29.0
 offset_top = -9.0
 offset_right = 96.0
 offset_bottom = 6.0
+
+[node name="Control" parent="." unique_id=1189031698 instance=ExtResource("2_edf0l")]
+layout_mode = 1
+offset_left = 266.0
+offset_top = -18.0
+offset_right = 266.0
+offset_bottom = -18.0
+
+[node name="Button" parent="Control" index="0" unique_id=1788719581]
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 61.0
+offset_bottom = 13.0
+
+[node name="Button2" type="Button" parent="Control" unique_id=1158755700]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -21.0
+offset_right = 61.0
+offset_bottom = -6.0
+theme_override_colors/font_color = Color(1, 0.5902411, 0.40547946, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_20rfi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5j06u")
+
+[node name="Button3" type="Button" parent="Control" unique_id=581108475]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -39.0
+offset_right = 61.0
+offset_bottom = -24.0
+theme_override_colors/font_color = Color(1, 0.5902411, 0.40547946, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_20rfi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5j06u")
+
+[editable path="Control"]

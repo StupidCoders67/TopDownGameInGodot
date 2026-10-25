@@ -4,7 +4,6 @@ extends CharacterBody2D
 @onready var hitbox: Area2D = $Hitbox
 @onready var interact_with_npc: Control = $"Interact with NPC"
 @onready var npc: CharacterBody2D = $"../NPC"
-@onready var dialog: Control = $Dialog
 
 
 var last_direction: Vector2 = Vector2.RIGHT
@@ -18,8 +17,7 @@ func _ready() -> void:
 	hitbox_offset = hitbox.position
 
 func _physics_process(delta: float) -> void:
-	#Hitbox Monitering's disablement
-	hitbox.monitoring = false
+	
 	if Input.is_action_just_pressed("attack") and not is_attacking:
 		attack()
 	if is_attacking:
@@ -29,6 +27,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	update_hitbox()
 	_interact_with_NPC()
+	if interact_with_npc.visible and Input.is_action_just_pressed("Interact"):
+		npc.dialog1()
+		print('blah')
 #--------------------------------------------------------------------------------
 #MOVING
 #--------------------------------------------------------------------------------
@@ -68,6 +69,7 @@ func attack() -> void:
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	is_attacking = false
+	hitbox.monitoring = false
 
 #--------------------------------------------------------------------------------
 #Hitbox_offset
@@ -98,6 +100,7 @@ func _interact_with_NPC() -> void:
 	else:
 		interact_with_npc.visible = false
 		
-func _dialog() -> void:
-	dialob.visibility = true
+	
+	
+
 	

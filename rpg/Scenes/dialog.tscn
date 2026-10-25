@@ -20,6 +20,9 @@ offset_left = 33.0
 offset_top = 4.0
 offset_right = 327.0
 offset_bottom = 44.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 16
+text = "HELLO WORLD"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=67447838]
 layout_mode = 0

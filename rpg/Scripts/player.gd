@@ -30,13 +30,12 @@ func _physics_process(delta: float) -> void:
 	_interact_with_NPC()
 	if interact_with_npc.visible and Input.is_action_just_pressed("Interact"):
 		dialog.dialog1()
-		print('blah')
 #--------------------------------------------------------------------------------
 #MOVING
 #--------------------------------------------------------------------------------
 func process_movement() -> void:
 	var direction := Input.get_vector("Left", "Right", "Up", "Down")
-	if direction != Vector2.ZERO:
+	if direction != Vector2.ZERO and dialog.dialog_happening:
 		velocity = direction * SPEED
 		last_direction = direction
 	else:
